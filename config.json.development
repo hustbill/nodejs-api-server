@@ -1,0 +1,203 @@
+{
+    "name" : "Pulse",
+    "cluster" : {
+        "silent" : false,
+        "size" : 1
+    },
+    "websiteUrl" : "https://www.organogold.com",
+    "siteUrl" : "http://localhost:8080",
+    "port" : 8080,
+    "connection" : {
+        "timeout" : 600000
+    },
+    "log" : {
+        "level" : "debug"
+    },
+    "airbrake" : {
+        "disabled" : true,
+        "apiKey" : "fd10fe446bb7f50c9874edc59cb8952c"
+    },
+    "statsd" : {
+        "host" : "127.0.0.1",
+        "port" : 8125,
+        "prefix" : "",
+        "suffix" : ".{device}.{hostname}",
+        "dnsCache" : false,
+        "mock" : false
+    },
+    "wssid" : {
+        "secret" : "0gm0bil3_wss1d_s33d"
+    },
+    "databases" : {
+        "default" : {
+            "protocol" : "tcp",
+            "host" : "192.168.199.81",
+            "port" : 5434,
+            "username" : "og_admin",
+            "password" : "og_admin",
+            "name" : "og_live",
+            "pool" : {
+                "min" : 1,
+                "max" : 50
+            },
+            "sequelize" : {
+                "dialect" : "postgres",
+                "omitNull" : true,
+                "maxConcurrentQueries" : 100,
+                "pool" : {
+                    "maxConnection" : 50
+                },
+                "define" : {
+                    "syncOnAssociation" : false,
+                    "underscored" : true
+                }
+            }
+        },
+        "read" : {
+            "protocol" : "tcp",
+            "host" : "192.168.199.81",
+            "port" : 5434,
+            "username" : "og_admin",
+            "password" : "og_admin",
+            "name" : "og_live",
+            "pool" : {
+                "min" : 1,
+                "max" : 50
+            },
+            "sequelize" : {
+                "dialect" : "postgres",
+                "omitNull" : true,
+                "maxConcurrentQueries" : 100,
+                "pool" : {
+                    "maxConnection" : 50
+                },
+                "define" : {
+                    "syncOnAssociation" : false,
+                    "underscored" : true
+                }
+            }
+        }
+    },
+    "memcached" : {
+        "servers" : ["192.168.199.122:11212"],
+        "options" : {
+            "poolSize" : 10
+        }
+    },
+    "redis" : {
+        "host" : "127.0.0.1",
+        "port" : 6379,
+        "password" : "",
+        "options" : {
+            "parser" : "javascript"
+        }
+    },
+    "avatarDatabase" : {
+        "host" : "192.168.199.81",
+        "port" : "27017",
+        "name" : "og_live"
+    },
+    "auditDatabase" : {
+        "host" : "127.0.0.1",
+        "port" : 27017,
+        "name" : "og_live"
+    },
+    "avalara" : {
+        "enabled" : false,
+        "webAddress" : "https://development.avalara.net",
+        "username" : "1100071815",
+        "password" : "D3EF8CCB9B5682C2",
+        "companyCode" : "OGI"
+    },
+    "payment" : {
+        "address" : "http://192.168.199.122:8001/v1",
+        "clientId" : "client_test_id_1",
+        "timeout" : 60000
+    },
+    "ups" : {
+        "accessLicenseNumber" : "0C8BF3C69655B0C0",
+        "userId" : "organogold",
+        "password" : "abcd1234"
+    },
+    "shoppingServiceDisabled" : false,
+    "distributorRenewalDays" : 5,
+    "application" : {
+        "address": {
+	    "validatePoBox": true
+	},
+        "purchase_limit": 3000,
+        "unique_email": true,
+        "create_hyperwallet_account": true,
+        "rolesCanSponsorOthers" : ["D", "P"],
+        "rolesHaveDualteamPosition" : ["D", "P"],
+        "enableCreatingBusinessCenter" : true,
+        "enableHyperwallet" : true,
+        "giftcardCurrencySymbol" : "$",
+        "shoppingCartSettings" : {
+            "defaultRoleCode" : "R",
+            "defaultCatalogCode" : "SP"
+        },
+        "lineItemCommissions" : {
+            "u_volume" : "CV",
+            "q_volume" : "QV",
+            "r_volume" : "QV"
+        },
+	"commission" : {
+	    "monthlyStartDate" : "20140501"
+	},
+        "fto-latest-founding-distributor-id" : 0,
+        "rolesCanHaveOrderDiscount": ["D"],
+        "initialLifetimeRank" : 40,
+        "orderPlugins" : [
+            {
+                "name" : "coupon",
+                "enabled" : true
+            },
+            {
+                "name" : "buyingBonus",
+                "enabled" : true,
+                "couponType" : "Buying Bonus"
+            },
+            {
+                "name" : "handlingFeeAdjustment",
+                "enabled" : true,
+                "adjustmentName" : "Handling Fee"
+            },
+            {
+                "name" : "discountAdjustment",
+                "enabled" : true
+            }
+        ],
+        "enableCashAutoship" : false,
+        "allowCancelAssembledOrder" : false,
+        "minRegistrationOrderItemTotal" : 50
+    },
+    "mailService" : {
+        "serverAddress" : "http://127.0.0.1:8082/v1",
+        "clientId" : "test_client_id_1",
+        "timeout" : "60000"
+    },
+    "partyPlanningService" : {
+        "serverAddress" : "http://localhost:80822/v2",
+        "clientId" : "test_client_id_1",
+        "timeout" : 10000
+    },
+    "zipwise" : {
+        "key" : "jsl7otojyqczvfkn",
+        "timeout" : 60000,
+        "radius": 5
+    },
+    "ipRules" : {
+        "all" : {
+            "allow" : [
+                "83.244.184.18",
+                "83.244.184.28",
+                "83.244.184.29",
+                "94.245.107.113"
+            ]
+        }
+    },
+    "admin-token-request-track" : {
+        "hide-from-display-list": ["abovegem"]
+    }
+}

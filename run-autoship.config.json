@@ -1,0 +1,68 @@
+{
+    "name" : "AutoshipOrderGenerator",
+    "log" : {
+        "level" : "debug"
+    },
+    "databases" : {
+        "default" : {
+            "protocol" : "tcp",
+            "host" : "localhost",
+            "port" : 5432,
+            "username" : "sc_admin",
+            "password" : "sc_admin",
+            "name" : "ftonly_dev3",
+            "pool" : {
+                "min" : 1,
+                "max" : 50
+            },
+            "sequelize" : {
+                "dialect" : "postgres",
+                "omitNull" : true,
+                "maxConcurrentQueries" : 100,
+                "pool" : {
+                    "maxConnection" : 50
+                },
+                "define" : {
+                    "syncOnAssociation" : false,
+                    "underscored" : true
+                }
+            }
+        },
+        "read" : {
+            "protocol" : "tcp",
+            "host" : "localhost",
+            "port" : 5432,
+            "username" : "sc_admin",
+            "password" : "sc_admin",
+            "name" : "ftonly_dev3",
+            "pool" : {
+                "min" : 1,
+                "max" : 50
+            },
+            "sequelize" : {
+                "dialect" : "postgres",
+                "omitNull" : true,
+                "maxConcurrentQueries" : 100,
+                "pool" : {
+                    "maxConnection" : 50
+                },
+                "define" : {
+                    "syncOnAssociation" : false,
+                    "underscored" : true
+                }
+            }
+        }
+    },
+    "memcached" : {
+        "servers" : ["127.0.0.1:11212"],
+        "options" : {
+            "poolSize" : 10
+        }
+    },
+    "autoshipOrderGenerator" : {
+        "adminUserLogin" : "",
+        "apiServerAddress" : "http://127.0.0.1:8080",
+        "apiClientId" : "test_client_id_1",
+        "apiClientSecret" : "test_client_secret_1"
+    }
+}

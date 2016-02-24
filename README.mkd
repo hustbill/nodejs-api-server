@@ -1,0 +1,48 @@
+# Pulse
+
+Pulse (AKA `nodejs-api-server` or `main-service`) is a Node.js application which provides most RESTful API.
+
+# Dependencies
+
+- [ImageMagick](http://www.imagemagick.org/)
+
+    sudo yum install ImageMagick
+
+# Setup
+
+Make sure that you have installed `node` and `npm`. We use node v0.10 in production for now. You can install the latest version of v0.10 using [nvm](https://github.com/creationix/nvm).
+
+    nvm install v0.10
+
+Download the source code after you have your `node` and `npm` installed.
+
+    cd your/work/path
+    git clone git@github.com:2ViVe/nodejs-api-server.git
+    cd nodejs-api-server
+    npm install     # install dependent modules
+    cp config.json.production config.json   # create the config file
+
+# Start and stop
+
+We recommend you use [pm2](https://github.com/Unitech/PM2) to manage your node services. However you can simply run `npm start` to start the service if you don't want to use pm2.
+
+Below is how to start the service using pm2:
+
+    mkdir -p /etc/pm2
+    cp pm2_config.sample.json /etc/pm2/main-service.json
+    # edit main-service.json file, change `script` and `run_as_user` properties:
+    # `script` is the absolute path of the `server.js` file.
+    # `run_as_user` is the user you want to run the service as. You can use your login user.
+    # make sure `error_file` and `out_file` are created and `run_as_user` has permission to write then.
+    pm2 start /etc/pm2/main-service.json    # start the service
+
+Now the service is started and running.
+
+You can restart it using `pm2 restart` comand:
+
+    pm2 restart main-service
+    
+Stop it:
+
+    pm2 stop main-service
+  

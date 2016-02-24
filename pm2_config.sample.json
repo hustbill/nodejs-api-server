@@ -1,0 +1,15 @@
+{
+    "name": "main-service",
+    "script": "./server.js",
+    "instances": "1",
+    "exec_mode": "cluster_mode",
+    "merge_logs" : true,
+    "ignore_watch" : ["[\\/\\\\]\\./", "node_modules"],
+    "watch" : false,
+    "run_as_user" : "ogrunner",
+    "error_file": "/var/log/main-service.log",
+    "out_file": "/var/log/main-service.log",
+    "env": {
+        "NODE_ENV": "development"
+    }
+}

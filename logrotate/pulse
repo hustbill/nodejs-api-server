@@ -1,0 +1,8 @@
+/var/log/pulse.log {
+  daily
+  rotate 365
+  missingok
+  copytruncate
+  compress
+  delaycompress
+}
